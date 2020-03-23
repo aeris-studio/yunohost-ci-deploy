@@ -1,13 +1,13 @@
 # rsync deployments GitHub Action
 
-This GitHub Action deploys your GitHub Action Workspace, totally or partially, to a remote server via rsync over ssh. 
+This GitHub Action deploys your GitHub Action Workspace, totally or partially, to the Yunohost CI Apps Dev via rsync over ssh. 
 
 This action would usually follow a build/test action which leaves deployable code in `GITHUB_WORKSPACE`.
 
 ## Example usage
 
 ```
-name: Checkout repo master branch and deploy to production
+name: Checkout repo master branch and deploy to YunoHost CI
 
 on:
   push:
@@ -19,30 +19,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: contention/rsync-deployments@master
+      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
         with:
-          USER_AND_HOST: user@example.com
-          DEST: /path/to/target
+          USERNAME: user
+          DEST: /data/example_ynh
         env:
           DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }} 
 ```
 
 ## Inputs
 
-### USER_AND_HOST
+### USERNAME
 
-**Mandatory**. Deployment user and host, and should be in the format: `[USER]@[HOST]`
-
+**Mandatory**. Your username for YunoHost CI Apps Dev.
 ```yaml
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: contention/rsync-deployments@master
+      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
         with:
           # ...
-          USER_AND_HOST: user@domain.tld
+          USERNAME: user
 ```
 
 ### DEST
@@ -56,10 +55,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: contention/rsync-deployments@master
+      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
         with:
           # ...
-          DEST: /path/to/target
+          DEST: /data/example_ynh
 ```
 
 ### SRC
@@ -72,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: contention/rsync-deployments@master
+      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
         with:
           # ...
           SRC: _site/
@@ -88,15 +87,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: contention/rsync-deployments@master
+      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
         with:
           # ...
-          RSYNC_OPTIONS: -avzr --delete --exclude node_modules --exclude '.git*'
+          RSYNC_OPTIONS: -avzr --delete --exclude '.git*'
 ```
 
 ## Required SECRET
 
-This action needs a `DEPLOY_KEY` secret variable. This should be the private key part of an ssh key pair. The public key part should be added to the authorized_keys file on the server that receives the deployment.
+This action needs a `DEPLOY_KEY` secret variable. This should be the private key part of an ssh key pair. The public key part should be added to the authorized_keys file on the CI, you can ask a YunoHost Apps Team Member to add your key.
 
 ```yaml
 jobs:
@@ -105,14 +104,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: contention/rsync-deployments@master
+      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
         with:
           # ...
         env:
           DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 ```
 
-In this example, it is expected you create a new repo `Settings › Secrets` named `SSH_PRIVATE_KEY`, with the content of a private key, with access to the remote host you want to deploy to.
+In this example, it is expected you create a new repo `Settings › Secrets` named `SSH_PRIVATE_KEY`, with the content of a private key, with access to the YunoHost CI Apps Dev.
 
 
 ## Disclaimer
