@@ -1,4 +1,9 @@
-# rsync deployments GitHub Action
+<p align="center">
+    <img alt="YunoHost" src="https://raw.githubusercontent.com/YunoHost/doc/master/images/logo_roundcorner.png" width="100px" />
+</p>
+
+<h1 align="center">rsync deployments for YunoHost CI</h1>
+<h2 align="center">using GitHub Actions</h2>
 
 This GitHub Action deploys your GitHub Action Workspace, totally or partially, to the Yunohost CI Apps Dev via rsync over ssh. 
 
