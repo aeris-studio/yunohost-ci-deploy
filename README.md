@@ -4,7 +4,7 @@ This GitHub Action deploys your GitHub Action Workspace, totally or partially, t
 
 This action would usually follow a build/test action which leaves deployable code in `GITHUB_WORKSPACE`.
 
-> If you want to use that for Yunohost CI Apps Dev, you may use (the yunohost-ci-apps-dev branch)[https://github.com/aeris-studio/rsync-deployments/tree/yunohost-ci-apps-dev].
+> If you want to use that for Yunohost CI Apps Dev, you may use [the yunohost-ci-apps-dev branch](https://github.com/aeris-studio/rsync-deployments/tree/yunohost-ci-apps-dev).
 
 ## Example usage
 
