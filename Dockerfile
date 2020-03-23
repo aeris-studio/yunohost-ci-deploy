@@ -10,14 +10,14 @@ RUN apt-get -yq install rsync openssh-client
 
 
 # Label
-LABEL "com.github.actions.name"="rsync deployments"
-LABEL "com.github.actions.description"="For deploying code to a webserver via rsync over ssh"
+LABEL "com.github.actions.name"="YunoHost CI Deployment"
+LABEL "com.github.actions.description"="For deploying to YunoHost CI via rsync over ssh"
 LABEL "com.github.actions.icon"="truck"
 LABEL "com.github.actions.color"="yellow"
 
-LABEL "repository"="http://github.com/contention/rsync-deployments"
-LABEL "homepage"="https://github.com/contention/rsync-deployments"
-LABEL "maintainer"="Contention <hello@contention.agency>"
+LABEL "repository"="http://github.com/aeris-studio/yunohost-ci-deploy"
+LABEL "homepage"="https://github.com/aeris-studio/yunohost-ci-deploy"
+LABEL "maintainer"="Aeris <aeris@e.email"
 
 
 # Copy entrypoint
