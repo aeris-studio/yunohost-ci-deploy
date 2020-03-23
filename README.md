@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
+      - uses: aeris-studio/yunohost-ci-deploy@yunohost-ci-apps-dev
         with:
           USERNAME: user
           DEST: /data/example_ynh
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
+      - uses: aeris-studio/yunohost-ci-deploy@yunohost-ci-apps-dev
         with:
           # ...
           USERNAME: user
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
+      - uses: aeris-studio/yunohost-ci-deploy@yunohost-ci-apps-dev
         with:
           # ...
           DEST: /data/example_ynh
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
+      - uses: aeris-studio/yunohost-ci-deploy@yunohost-ci-apps-dev
         with:
           # ...
           SRC: _site/
@@ -92,7 +92,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
+      - uses: aeris-studio/yunohost-ci-deploy@yunohost-ci-apps-dev
         with:
           # ...
           RSYNC_OPTIONS: -avzr --delete --exclude '.git*'
@@ -109,7 +109,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - # ...
-      - uses: aeris-studio/rsync-deployments@yunohost-ci-apps-dev
+      - uses: aeris-studio/yunohost-ci-deploy@yunohost-ci-apps-dev
         with:
           # ...
         env:
