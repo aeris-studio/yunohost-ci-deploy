@@ -11,7 +11,7 @@ This action would usually follow a build/test action which leaves deployable cod
 
 ## Example usage
 
-```
+```yaml
 name: Checkout repo master branch and deploy to YunoHost CI
 
 on:
